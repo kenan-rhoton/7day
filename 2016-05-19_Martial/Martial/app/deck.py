@@ -1,12 +1,12 @@
 from app.card import Card
+from app.zone import Zone
 
-class Deck(object):
+class Deck(Zone):
 
     def __init__(self, source=""):
 
-        self.cardlist = []
-        self.discard = []
-        
+        Zone.__init__(self)
+
         if source != "":
             with open(source, 'r') as f:
                 for line in f:
@@ -14,7 +14,4 @@ class Deck(object):
                     self.cardlist.append(Card(data[0],data[1]))
 
     def addCardBlock(self, name):
-        pass
-
-    def addCard(self, name):
         pass
