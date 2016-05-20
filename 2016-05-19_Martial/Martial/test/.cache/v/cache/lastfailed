@@ -1,0 +1,5 @@
+{
+  "test_cards.py::TddInPythonExample::test_card_object_is_created": true,
+  "test_cards.py::TddInPythonExample::test_card_object_is_printed": true,
+  "test_screen.py::TddInPythonExample::test_screen_printing_capabilities": true
+}
