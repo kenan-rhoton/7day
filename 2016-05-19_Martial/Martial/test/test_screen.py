@@ -1,7 +1,7 @@
 import unittest
 from app.screen import Screen
 
-class TddInPythonExample(unittest.TestCase):
+class TestScreen(unittest.TestCase):
 
     def setUp(self):
         self.screen = Screen()

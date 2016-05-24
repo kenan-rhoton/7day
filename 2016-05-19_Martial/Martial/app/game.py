@@ -1,35 +1,25 @@
 from app.screen import Screen
 from app.deck import Deck
 from app.hand import Hand
+from app.zone import Zone
 
 class Game(object):
 
     def __init__(self):
         self.scr = Screen()
         self.shared_deck = Deck("data/shared_deck")
-        self.player_hand = Hand()
+        self.player_hand = Hand("data/starting_options")
         self.player_deck = Deck()
-        self.scr.put("Pick your starting card groups")
+        self.player_discarded_cards = Zone()
 
-    #Test helpers
+    def drawPlayerHand(self):
+        self.player_deck
 
-    def pickRandomStart(self):
-        self.scr.put("Your hand")
+    def turn(self):
         pass
 
-    def screenDump(self):
-        return self.scr.dump()
-
-    #Getters
-
-    def getSharedDeck(self):
-        return self.shared_deck
-
-    def getPlayerHand(self):
-        return self.player_hand
-
-    def getPlayerDeck(self):
-        return self.player_deck
-
+    def paint(self):
+        pass
+    
     def end(self):
         self.scr.end()
