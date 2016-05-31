@@ -1,11 +1,5 @@
-[INFO  - 2016-05-30T19:46:32.257Z] GhostDriver - Main - running on port 58389
-[INFO  - 2016-05-30T19:46:33.225Z] Session [36311260-269f-11e6-925a-4f0e4db2a63a] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2016-05-30T19:46:33.225Z] Session [36311260-269f-11e6-925a-4f0e4db2a63a] - page.customHeaders:  - {}
-[INFO  - 2016-05-30T19:46:33.225Z] Session [36311260-269f-11e6-925a-4f0e4db2a63a] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2016-05-30T19:46:33.225Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 36311260-269f-11e6-925a-4f0e4db2a63a
-[ERROR - 2016-05-30T19:46:34.763Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1464637594725
-
-  phantomjs://platform/console++.js:263 in error
-[ERROR - 2016-05-30T19:46:41.269Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1464637601225
-
-  phantomjs://platform/console++.js:263 in error
+[INFO  - 2016-05-31T17:52:11.685Z] GhostDriver - Main - running on port 53620
+[INFO  - 2016-05-31T17:52:12.654Z] Session [6762c3b0-2758-11e6-bfe1-210194d636b9] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-05-31T17:52:12.654Z] Session [6762c3b0-2758-11e6-bfe1-210194d636b9] - page.customHeaders:  - {}
+[INFO  - 2016-05-31T17:52:12.654Z] Session [6762c3b0-2758-11e6-bfe1-210194d636b9] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-05-31T17:52:12.654Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6762c3b0-2758-11e6-bfe1-210194d636b9

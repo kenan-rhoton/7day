@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<div id="latest_posts">
+    <h1>Latest Posts</h1>
+    
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        {{ post.content }}
+    {% endfor %}
+</div>
+
+{% if user.is_authenticated %}
+    {% include 'website/logout_box.html' %}
+{% else %}
+    {% include 'website/login_box.html' %}
+{% endif %}
+
+{% if can_post %}
+    {% include 'website/post_form.html' %}
+{% endif %}

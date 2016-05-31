@@ -1,25 +1,22 @@
 from behave import given, when, then
 from test.factories.user import UserFactory
+from django.contrib.auth.models import Permission
 
 INDEX_PAGE = '/site/'
 
-@given(u'I am not logged in')
+@given(u'I am logged in with posting capabilities')
 def step_impl(context):
     from django.contrib.auth.models import User
 
     u = UserFactory(username='foo', email='foo@example.com')
     u.set_password('bar')
+    permission = Permission.objects.get(codename='add_post')
+    u.user_permissions.add(permission)
 
     u.save()
 
-@given(u'I am on the HomePage')
-def step_impl(context):
     br = context.browser
     br.get(context.base_url + INDEX_PAGE)
-
-@when(u'I log in')
-def step_impl(context):
-    br = context.browser
 
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
@@ -27,18 +24,20 @@ def step_impl(context):
     br.find_element_by_id('login_pass').send_keys('bar')
     br.find_element_by_name('submit').click()
 
-@then(u'I should see the Latest Posts Block')
+@given(u'I see a New Post button')
 def step_impl(context):
     br = context.browser
-    assert br.find_element_by_id('latest_posts')
+    assert br.find_element_by_id('new_post_button')
 
-@then(u'I should see the Login Form')
+@when(u'I create a New Post')
 def step_impl(context):
     br = context.browser
-    assert br.find_element_by_id('login_user')
-    assert br.find_element_by_id('login_pass')
+    br.find_element_by_id('post_title').send_keys('DA TITLE')
+    br.find_element_by_id('post_content').send_keys('DA CONTENT')
+    br.find_element_by_id('post_submit').click()
 
-@then(u'I should see the Logout Button')
+
+@then(u'it should appear on the HomePage')
 def step_impl(context):
-    br = context.browser
-    assert br.find_element_by_id('logout_button')
+    pass
+
