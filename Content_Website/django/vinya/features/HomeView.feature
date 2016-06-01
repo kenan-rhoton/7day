@@ -5,6 +5,7 @@ Feature: Home page
         And I am on the HomePage
         Then I should see the Latest Posts Block
         And I should see the Login Form
+        And I should not see the New Form Button
 
     Scenario: View the Home Page as logged in user
         Given I am not logged in

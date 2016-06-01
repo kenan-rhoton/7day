@@ -1,6 +1,6 @@
 Feature: Home page
 
-    Scenario: View the Home Page as logged in user
+    Scenario: Post as a user
         Given I am logged in with posting capabilities
         And I am on the HomePage
         And I see a New Post button

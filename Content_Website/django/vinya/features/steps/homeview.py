@@ -1,6 +1,8 @@
 from behave import given, when, then
 from test.factories.user import UserFactory
 
+from selenium.common.exceptions import NoSuchElementException
+
 INDEX_PAGE = '/site/'
 
 @given(u'I am not logged in')
@@ -42,3 +44,14 @@ def step_impl(context):
 def step_impl(context):
     br = context.browser
     assert br.find_element_by_id('logout_button')
+
+@then(u'I should not see the New Form Button')
+def step_impl(context):
+    br = context.browser
+    found = False
+    try:
+        br.find_element_by_id('new_post_button')
+        found = True
+    except NoSuchElementException:
+        found = False
+    assert found == False
