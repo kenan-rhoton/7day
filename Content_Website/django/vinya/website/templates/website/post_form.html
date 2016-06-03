@@ -1,7 +1,5 @@
-<button id="new_post_button">New Post</button>
-
 <div id="post_block">
-    <form action="potatoes" method="POST">
+    <form action="{% url 'website:AddPost' %}" method="POST">
         {% csrf_token %}
     
         <label for="post_title">Title</label>

@@ -50,8 +50,14 @@ def step_impl(context):
     br = context.browser
     found = False
     try:
-        br.find_element_by_id('new_post_button')
+        br.find_element_by_id('post_submit')
         found = True
     except NoSuchElementException:
         found = False
     assert found == False
+
+@then(u'I should be able to Logout')
+def step_impl(context):
+    br = context.browser
+    br.find_element_by_id('logout_button').click()
+

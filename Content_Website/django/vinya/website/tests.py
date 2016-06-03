@@ -6,6 +6,7 @@ from .models import Post, Section
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+
 class PostTests(TestCase):
 
     def test_post_is_created_correctly(self):
@@ -45,17 +46,32 @@ class SectionTests(TestCase):
         new_post.addSection(sec)
         self.assertEqual(1,new_post.sections.count())
 
-#TODO
+
 class BlockTests(TestCase):
 
+    def setUp(self):
+        self.new_post = Post(title = "Mah title", content = "Mah content")
+        self.new_post.save()
+        self.sec = Section(name="Potatoes")
+        self.sec.save()
+        self.new_post.addSection(self.sec)
+
     def test_sections_can_be_on_a_block(self):
-        pass
+        self.sec.addToBlock("Top")
+        self.sec.refresh_from_db()
+        self.sec.block == "Top"
 
     def test_blocks_can_be_positioned_right(self):
-        pass
+        self.sec.addToBlock("Right")
+        self.sec.refresh_from_db()
+        self.sec.block == "Right"
 
     def test_blocks_can_be_positioned_left(self):
-        pass
+        self.sec.addToBlock("Left")
+        self.sec.refresh_from_db()
+        self.sec.block == "Left"
 
     def test_blocks_can_be_positioned_center(self):
-        pass
+        self.sec.addToBlock("Center")
+        self.sec.refresh_from_db()
+        self.sec.block == "Center"

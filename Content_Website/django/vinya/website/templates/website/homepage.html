@@ -6,6 +6,9 @@
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
         {{ post.content }}
+        {% if can_delete %}
+            <a href="{% url 'website:DeletePost' post.id %}" class='delete_post'>Delete Post</a>
+        {% endif %}
     {% endfor %}
 </div>
 
