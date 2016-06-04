@@ -2,12 +2,14 @@
     <form action="{% url 'website:AddPost' %}" method="POST">
         {% csrf_token %}
     
+        <div class="form-group">
         <label for="post_title">Title</label>
-        <input type="text" name="post_title" id="post_title">
-    
+        <input type="text" class="form-control" name="post_title" id="post_title">
+        </div>
+        <div class="form-group">
         <label for="post_content">Content</label>
-        <input type="text" name="post_content" id="post_content">
-    
-        <input type="submit" name="post_submit" id="post_submit" value="New Post">
+        <textarea class="form-control" rows="5" name="post_content" id="post_content"></textarea>
+        </div>
+        <input type="submit" class="btn btn-default" name="post_submit" id="post_submit" value="New Post">
     </form>
 </div>

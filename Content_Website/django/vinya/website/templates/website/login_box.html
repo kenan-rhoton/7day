@@ -1,13 +1,13 @@
 <form action="{% url 'website:Login'  %}" method="POST">
     {% csrf_token %}
 
-    <div>
+    <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" name="username" id="login_user">
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="login_pass">
-
-        <input type="submit" name="submit" value="login">
+        <input type="text" class="form-control" name="username" id="login_user">
     </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="login_pass">
+    </div>
+        <input type="submit" class="btn btn-default" name="submit" value="Login">
 </form>
