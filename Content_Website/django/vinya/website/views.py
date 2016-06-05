@@ -47,3 +47,12 @@ def delete_post(request, post_id):
         p = get_object_or_404(Post, pk=post_id)
         p.delete()
     return HttpResponseRedirect(reverse('website:HomePage'))
+
+def view_post(request, post_id):
+    p = get_object_or_404(Post, pk=post_id)
+    can_delete = request.user.has_perm('website.delete_post')
+    return render(request, 'website/postpage.html', {
+        'post': p,
+        'can_delete': can_delete
+        })
+

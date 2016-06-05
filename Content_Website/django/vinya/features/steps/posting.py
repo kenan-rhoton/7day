@@ -48,6 +48,17 @@ def step_impl(context, title, content):
     br.find_element_by_id('post_content').send_keys(content)
     br.find_element_by_id('post_submit').click()
 
+@when(u'I click on the Post title "{title}"')
+def step_impl(context, title):
+    br = context.browser
+    br.find_element_by_link_text(title).click()
+
+@then(u'I should see the Post page for "{title}"')
+def step_impl(context, title):
+    br = context.browser
+    post_title = br.find_element_by_id('post_title')
+    context.test.assertEquals(post_title.text, title)
+
 
 @then(u'it should appear on the HomePage')
 def step_impl(context):

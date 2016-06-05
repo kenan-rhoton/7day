@@ -60,18 +60,3 @@ class BlockTests(TestCase):
         self.sec.addToBlock("Top")
         self.sec.refresh_from_db()
         self.sec.block == "Top"
-
-    def test_blocks_can_be_positioned_right(self):
-        self.sec.addToBlock("Right")
-        self.sec.refresh_from_db()
-        self.sec.block == "Right"
-
-    def test_blocks_can_be_positioned_left(self):
-        self.sec.addToBlock("Left")
-        self.sec.refresh_from_db()
-        self.sec.block == "Left"
-
-    def test_blocks_can_be_positioned_center(self):
-        self.sec.addToBlock("Center")
-        self.sec.refresh_from_db()
-        self.sec.block == "Center"
