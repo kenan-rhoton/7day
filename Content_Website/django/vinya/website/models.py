@@ -3,7 +3,6 @@ from django.db import models
 class Section(models.Model):
     name = models.CharField(max_length=200)
     block = models.CharField(max_length=200)
-    posts = []
 
     def addToBlock(self, block):
         self.block = block
@@ -16,5 +15,3 @@ class Post(models.Model):
     def addSection(self, s):
         self.sections.add(s)
         self.save()
-        s.posts.append(self)
-        s.save()

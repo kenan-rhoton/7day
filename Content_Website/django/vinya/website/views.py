@@ -44,8 +44,6 @@ def add_post(request):
                 p = Post(title=request.POST['post_title'], content=request.POST['post_content'])
                 p.save()
                 p.addSection(section)
-                p.save()
-                section.save()
             else:
                 p = Post(title=request.POST['post_title'], content=request.POST['post_content'])
                 p.save()

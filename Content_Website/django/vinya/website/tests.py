@@ -46,6 +46,28 @@ class SectionTests(TestCase):
         new_post.addSection(sec)
         self.assertEqual(1,new_post.sections.count())
 
+    def test_adding_post_to_section_increases_post_count_of_section(self):
+        new_post = Post(title = "Mah title", content = "Mah content")
+        new_post.save()
+        sec = Section(name="Potatoes")
+        sec.save()
+        new_post.addSection(sec)
+        sec.refresh_from_db()
+        self.assertEqual(1,len(sec.post_set.all()))
+
+    def test_deleting_post_removes_from_section_post_list(self):
+        new_post = Post(title = "Mah title", content = "Mah content")
+        new_post.save()
+        sec = Section(name="Potatoes")
+        sec.save()
+        new_post.addSection(sec)
+        sec.refresh_from_db()
+        new_post.refresh_from_db()
+        new_post.delete()
+        sec.refresh_from_db()
+        self.assertEqual(0,len(sec.post_set.all()))
+
+
 
 class BlockTests(TestCase):
 

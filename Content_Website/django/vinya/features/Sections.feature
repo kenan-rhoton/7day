@@ -9,6 +9,7 @@ Feature: Sections
 
     Scenario: Post with section has link
         Given There is a Section "Jackie" assigned to "sidebar"
-        And There is a Post with title "DA TITLE" and content "DA CONTENT" assigned to section "Jackie"
+        And There is a Post assigned to section "Jackie" with title "DA TITLE" and content "DA CONTENT"
+        And I am on the HomePage
         When I click on the link to "DA TITLE" inside the "sidebar"
         Then I should see the Post page for "DA TITLE"
