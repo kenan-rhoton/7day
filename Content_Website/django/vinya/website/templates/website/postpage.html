@@ -1,0 +1,21 @@
+{% load staticfiles %}
+{% include 'website/header.html' %}
+{% include 'website/sidebar.html' %}
+
+<div class="container col-sm-8" role="main" id="post">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <a href="{% url 'website:ViewPost' post.id %}"><h2 class="panel-title" id="post_title">{{ post.title }}</h2></a>
+        </div>
+        <div class="panel-body" id="post_content">
+        {{ post.content }}
+        </div>
+        {% if can_delete %}
+            <a class="btn btn-default delete_post" href="{% url 'website:DeletePost' post.id %}">Delete Post</a>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'website/login.html' %}
+
+<script src="{% static 'website/js/bootstrap.min.js' %}"></script>

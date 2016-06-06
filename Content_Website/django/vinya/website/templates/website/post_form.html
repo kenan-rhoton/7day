@@ -3,12 +3,21 @@
         {% csrf_token %}
     
         <div class="form-group">
-        <label for="post_title">Title</label>
-        <input type="text" class="form-control" name="post_title" id="post_title">
+            <label for="post_title">Title</label>
+            <input type="text" class="form-control" name="post_title" id="post_title">
         </div>
         <div class="form-group">
-        <label for="post_content">Content</label>
-        <textarea class="form-control" rows="5" name="post_content" id="post_content"></textarea>
+            <label for="post_section">Section</label>
+            <select class="form-control" id="post_section" name="post_section">
+                <option value=""></option>
+                {% for section in sections %}
+                    <option value="{{section.id}}">{{section.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="post_content">Content</label>
+            <textarea class="form-control" rows="5" name="post_content" id="post_content"></textarea>
         </div>
         <input type="submit" class="btn btn-default" name="post_submit" id="post_submit" value="New Post">
     </form>

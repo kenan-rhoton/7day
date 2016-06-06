@@ -1,0 +1,8 @@
+<div class="container col-sm-2" id="login_logout">
+    {% if user.is_authenticated %}
+        {% include 'website/logout_box.html' %}
+    {% else %}
+        {% include 'website/login_box.html' %}
+    {% endif %}
+</div>
+

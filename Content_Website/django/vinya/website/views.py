@@ -3,14 +3,16 @@ from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Post
+from .models import Post, Section
 
 def homepage(request):
     posts = Post.objects.all()
+    sections = Section.objects.all()
     can_post = request.user.has_perm('website.add_post')
     can_delete = request.user.has_perm('website.delete_post')
     return render(request, 'website/homepage.html', {
         'posts':posts,
+        'sections':sections,
         'can_post': can_post,
         'can_delete': can_delete
         })
@@ -37,8 +39,17 @@ def add_post(request):
     if request.method == 'POST':
         can_post = request.user.has_perm('website.add_post')
         if can_post:
-            p = Post(title=request.POST['post_title'], content=request.POST['post_content'])
-            p.save()
+            if request.POST['post_section'] != "":
+                section = get_object_or_404(Section, pk=request.POST['post_section'])
+                p = Post(title=request.POST['post_title'], content=request.POST['post_content'])
+                p.save()
+                p.addSection(section)
+                p.save()
+                section.save()
+            else:
+                p = Post(title=request.POST['post_title'], content=request.POST['post_content'])
+                p.save()
+
     return HttpResponseRedirect(reverse('website:HomePage'))
 
 def delete_post(request, post_id):
@@ -50,9 +61,11 @@ def delete_post(request, post_id):
 
 def view_post(request, post_id):
     p = get_object_or_404(Post, pk=post_id)
+    sections = Section.objects.all()
     can_delete = request.user.has_perm('website.delete_post')
     return render(request, 'website/postpage.html', {
         'post': p,
+        'sections':sections,
         'can_delete': can_delete
         })
 
