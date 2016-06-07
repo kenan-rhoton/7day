@@ -7,6 +7,9 @@ class Section(models.Model):
     def addToBlock(self, block):
         self.block = block
 
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -15,3 +18,6 @@ class Post(models.Model):
     def addSection(self, s):
         self.sections.add(s)
         self.save()
+
+    def __str__(self):
+        return self.title
